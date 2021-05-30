@@ -31,6 +31,8 @@ public class Menu {
 
 	public void agregarCliente(ClienteServicio lista) {
 		Scanner sc = new Scanner(System.in);
+		boolean todoCorrecto=false;
+		while(todoCorrecto== false) {
 		Cliente nuevo = new Cliente();
 		System.out.println("-------------Crear Cliente-------------");
 		System.out.println("Ingresa RUN del Cliente: ");
@@ -42,7 +44,13 @@ public class Menu {
 		System.out.println("Ingresa años como Cliente: ");
 		nuevo.setAniosCliente(sc.nextLine());
 		System.out.println("--------------------------------------");
-		lista.agregarCliente(nuevo);
+		if(nuevo.getAniosCliente().equals("")||nuevo.getApellidoCliente().equals("")||nuevo.getNombreCliente().equals("")||nuevo.getRunCliente().equals("")) {
+			System.out.println("Debe ingresar todos los datos");
+		}else {
+			lista.agregarCliente(nuevo);
+			todoCorrecto=true;
+		}
+		}
 	}
 
 	public void editarCliente(ClienteServicio lista) {
