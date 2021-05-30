@@ -29,7 +29,7 @@ public class Menu {
 		lista.retornolistarClientes();
 	}
 
-	public ClienteServicio agregarCliente(ClienteServicio lista) {
+	public void agregarCliente(ClienteServicio lista) {
 		Scanner sc = new Scanner(System.in);
 		Cliente nuevo = new Cliente();
 		System.out.println("-------------Crear Cliente-------------");
@@ -43,7 +43,6 @@ public class Menu {
 		nuevo.setAniosCliente(sc.nextLine());
 		System.out.println("--------------------------------------");
 		lista.agregarCliente(nuevo);
-		return lista;
 	}
 
 	public void editarCliente(ClienteServicio lista) {
