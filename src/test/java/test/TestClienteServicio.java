@@ -15,19 +15,20 @@ public class TestClienteServicio {
 	private static Logger logger = Logger.getLogger("sistemaDeClientes.test.ServicioPersonaTest");
 	private final ClienteServicio clienteServicio = new ClienteServicio(new ArrayList<Cliente>());
 	
+	Cliente clienteTest = new Cliente("11.111.11-1", "Juan","Perez", "1 Año", CategoriaEnum.ACTIVO);
+	Cliente clienteNullTest = null;
+	
 	@Test
 	public void agregarClienteTest() {
 		logger.info("Test agregar Cliente");
-		Cliente clientePrueba = new Cliente("11.111.111-1", "Juan","Perez", "1 Año", CategoriaEnum.ACTIVO);
-		Cliente respuestaServicio = clienteServicio.agregarCliente(clientePrueba);
-		assertEquals(clientePrueba,respuestaServicio);
+		String returnClienteTest = clienteServicio.agregarCliente(clienteTest);
+		assertEquals("OK",returnClienteTest);
 	}
 	
 	@Test
 	public void agregarClienteNullTest() {
 		logger.info("Test Cliente Nulo");
-		Cliente clientePrueba = null;
-		Cliente respuestaNulo = clienteServicio.agregarCliente(null);
-		assertEquals(clientePrueba,respuestaNulo);
+		String returnClienteNull = clienteServicio.agregarCliente(clienteNullTest);
+		assertEquals("NULO",returnClienteNull);
 	}
 }

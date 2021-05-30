@@ -17,20 +17,21 @@ public class ClienteServicio {
 	
 	public void retornolistarClientes(){
 		if (listaClientes.size()>0) {
-			for (Cliente cliente : listaClientes) {
-				System.out.println(cliente);
-			}
-			
+			listaClientes.stream().forEach(System.out::println);
 		}else {
-			System.out.println("\n-------------------------\n"
-					+ "No hay datos para mostrar.\n"
-					+ "-------------------------\n");
+			System.out.println("\n--------------------------\n"
+							   + "No hay datos para mostrar.\n"
+							   + "--------------------------\n");
 		}
 	}
 
-	public Cliente agregarCliente(Cliente cliente) {
+	public String agregarCliente(Cliente cliente) {
 		this.listaClientes.add(cliente);
-		return cliente;
+		if (cliente != null) {
+			return "OK";
+		}else{
+			return "NULO";
+		}
 	}
 	
 	public void editarCliente() {

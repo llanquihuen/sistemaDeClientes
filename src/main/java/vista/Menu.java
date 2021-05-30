@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//import modelo.CategoriaEnum;
 import modelo.Cliente;
 import utilidades.Utilidad;
 import servicio.ArchivoServicio;
@@ -30,7 +29,7 @@ public class Menu {
 		lista.retornolistarClientes();
 	}
 
-	public void agregarCliente(ClienteServicio lista) {
+	public ClienteServicio agregarCliente(ClienteServicio lista) {
 		Scanner sc = new Scanner(System.in);
 		Cliente nuevo = new Cliente();
 		System.out.println("-------------Crear Cliente-------------");
@@ -44,11 +43,11 @@ public class Menu {
 		nuevo.setAniosCliente(sc.nextLine());
 		System.out.println("--------------------------------------");
 		lista.agregarCliente(nuevo);
+		return lista;
 	}
 
 	public void editarCliente(ClienteServicio lista) {
 		lista.editarCliente();
-
 	}
 
 	public void importarDatos(ClienteServicio lista) {
@@ -74,7 +73,6 @@ public class Menu {
 		}else {
 			System.out.println("Opción invalida, volviendo al menu principal");
 			Utilidad.clear(1);
-
 		}
 	}
 
@@ -86,9 +84,6 @@ public class Menu {
 	}
 
 	public void iniciarMenu() {
-		//clienteServicio.agregarCliente(new Cliente("11.111.111-1", "Juan","Perez", "1 Año", CategoriaEnum.ACTIVO ));
-		//clienteServicio.agregarCliente(new Cliente("22.222.222-2", "Pedro","Soto", "9 Meses", CategoriaEnum.INACTIVO ));
-		
 		Scanner sc = new Scanner(System.in);
 		int opcion = -1;
 		while (opcion != 6) {
