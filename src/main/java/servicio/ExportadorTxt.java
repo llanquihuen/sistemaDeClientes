@@ -15,8 +15,10 @@ public class ExportadorTxt extends Exportador{
 	@Override
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		Scanner sc = new Scanner(System.in);
-		File direc = new File(fileName);
-		File arch = new File(fileName+"/clientes.txt");
+		System.out.println("Ingresa la ruta en donde desea exportar el archivo clientes.txt:");
+		String ruta = sc.nextLine();
+		File direc = new File(ruta);
+		File arch = new File(ruta+"/"+fileName+".txt");
 		
 		String stringLista = listaClientes.toString();
 		
@@ -43,7 +45,7 @@ public class ExportadorTxt extends Exportador{
 					System.out.println("Error al crear archivo --" + e.getMessage() + "--");
 				}
 				if (arch.exists() == true) {
-					System.out.println("El archivo " + fileName + "/clientes.txt ha sido creado!");
+					System.out.println("El archivo " + ruta + "/"+fileName+".txt ha sido creado!");
 					Utilidad.clear(1);
 
 				}

@@ -149,18 +149,7 @@ public class ClienteServicio {
 		return listaClientes;
 	}
 	
-	public String retornoCsv(List<Cliente> listaClientes) {
-		String guardar="";
-		for (Cliente cliente : listaClientes) {
-			guardar+=cliente.getRunCliente()+","+cliente.getNombreCliente()
-			+","+cliente.getApellidoCliente()+","+cliente.getAniosCliente()
-			+","+(cliente.getNombreCategoria().toString().substring(0, 1).toUpperCase())
-			+(cliente.getNombreCategoria().toString().substring(1).toLowerCase()+"\n");
-			System.out.println(guardar);
-		}
-		return guardar;
-	}
-	
+
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
 	}

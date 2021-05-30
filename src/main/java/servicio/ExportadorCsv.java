@@ -15,8 +15,10 @@ public class ExportadorCsv extends Exportador{
 	@Override
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		Scanner sc = new Scanner(System.in);
-		File direc = new File(fileName);
-		File arch = new File(fileName+"/clientes.csv");
+		System.out.println("Ingresa la ruta en donde desea exportar el archivo clientes.csv:");
+		String ruta = sc.nextLine();
+		File direc = new File(ruta);
+		File arch = new File(ruta+"/"+fileName+".csv");
 		
 		String stringLista="";
 		for (Cliente cliente : listaClientes) {
@@ -50,7 +52,7 @@ public class ExportadorCsv extends Exportador{
 					System.out.println("Error al crear archivo --" + e.getMessage() + "--");
 				}
 				if (arch.exists() == true) {
-					System.out.println("El archivo " + fileName + "/clientes.csv ha sido creado!");
+					System.out.println("El archivo " + ruta + "/"+fileName+".csv ha sido creado!");
 					Utilidad.clear(1);
 
 				}

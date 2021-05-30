@@ -17,8 +17,10 @@ public class ArchivoServicio extends Exportador{
 	}
 	public void cargarDatos(String fileName,ClienteServicio listaDeClientes) {
 		Scanner sc = new Scanner(System.in);
-		File direc = new File(fileName);
-		File arch = new File(fileName + "/DBClientes.csv");
+		System.out.println("Ingresa la ruta en donde se encuentra el archivo DBClientes.csv:");
+		String ruta = sc.nextLine();
+		File direc = new File(ruta);
+		File arch = new File(ruta + "/"+fileName);
 		String data="";
 		
 		//	Verificacion y Lectura de Archivo
@@ -34,7 +36,9 @@ public class ArchivoServicio extends Exportador{
 							System.out.println(data);
 						String [] miArray1 = data.split("\\,");
 						data = br.readLine();
-						listaDeClientes.agregarCliente(new Cliente(miArray1[0],miArray1[1],miArray1[2],miArray1[3],(miArray1[4].equals("Activo")?CategoriaEnum.ACTIVO:miArray1[4].equals("Inactivo")?CategoriaEnum.INACTIVO:CategoriaEnum.ACTIVO)));
+						listaDeClientes.agregarCliente(new Cliente(miArray1[0],miArray1[1],miArray1[2],miArray1[3],
+								(miArray1[4].equalsIgnoreCase("Activo")?CategoriaEnum.ACTIVO: // Si dice activo-> Enum ACTIVO
+									miArray1[4].equalsIgnoreCase("Inactivo")?CategoriaEnum.INACTIVO:CategoriaEnum.ACTIVO))); //Si dice inactivo -> Enum INACTIVO, si no dice ningua de las dos queda ACTIVO.
 						}
 					br.close();
 					
@@ -45,7 +49,7 @@ public class ArchivoServicio extends Exportador{
 			
 				
 			} else {
-				System.out.println("No se encuentra el archivo");
+				System.out.println("No se encuentra el archivo "+fileName);
 			}
 
 			
