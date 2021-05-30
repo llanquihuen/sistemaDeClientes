@@ -12,7 +12,7 @@ import modelo.Cliente;
 import servicio.ClienteServicio;
 
 public class TestClienteServicio {
-	private static Logger logger = Logger.getLogger("cl.desafiolatam.servicios.ServicioPersonaTest");
+	private static Logger logger = Logger.getLogger("sistemaDeClientes.test.ServicioPersonaTest");
 	private final ClienteServicio clienteServicio = new ClienteServicio(new ArrayList<Cliente>());
 	
 	@Test

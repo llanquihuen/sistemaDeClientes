@@ -79,16 +79,16 @@ public class ClienteServicio {
 				for (Cliente cliente : listaClientes) {
 					if (cliente.getRunCliente().equals(run)) {
 						int num = -1;
-						Utilidad.clear(2);
-						System.out.println("----Actualizando datos del Cliente-----\n");
-						System.out.println("1​.-El RUN del Cliente es: "+ cliente.getRunCliente());
-						System.out.println("2​.-El Nombre del Cliente es : ​" + cliente.getNombreCliente());
-						System.out.println("3​.-El Apellido del Cliente es :" + cliente.getApellidoCliente());
-						System.out.println("4​.-Los años como Cliente son: " + cliente.getAniosCliente());
-						System.out.println();
-						while (num < 0 || num > 5) {
+						while (num < 1 || num > 4) {
 							existe = true;
 							try {
+								Utilidad.clear(2);
+								System.out.println("----Actualizando datos del Cliente-----\n");
+								System.out.println("1​.-El RUN del Cliente es: "+ cliente.getRunCliente());
+								System.out.println("2​.-El Nombre del Cliente es : ​" + cliente.getNombreCliente());
+								System.out.println("3​.-El Apellido del Cliente es :" + cliente.getApellidoCliente());
+								System.out.println("4​.-Los años como Cliente son: " + cliente.getAniosCliente());
+								System.out.println();
 								System.out.println("Ingrese la opción a editar de los datos del producto:");
 								num = Integer.parseInt(sc.nextLine());
 							} catch (Exception e) {

@@ -90,28 +90,38 @@ public class Menu {
 		//clienteServicio.agregarCliente(new Cliente("22.222.222-2", "Pedro","Soto", "9 Meses", CategoriaEnum.INACTIVO ));
 		
 		Scanner sc = new Scanner(System.in);
-		String opcion = "";
-		
-		while (!opcion.equals("6")) {
-			System.out.println(menu);
-			opcion = sc.nextLine();
-			if (opcion.equals("1")) {
+		int opcion = -1;
+		while (opcion != 6) {
+			try {
+				System.out.println(menu);
+				opcion = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			System.out.println("ERROR Opcion no valida, se esperaba un número");
+		}
+			switch (opcion) {
+			case 1:
 				listarCliente(clienteServicio);
-			} else if (opcion.equals("2")) {
+				break;
+			case 2:
 				agregarCliente(clienteServicio);
-			} else if (opcion.equals("3")) {
+				break;
+			case 3:
 				editarCliente(clienteServicio);
-			} else if (opcion.equals("4")) {
+				break;
+			case 4:
 				importarDatos(clienteServicio);
-			} else if (opcion.equals("5")) {
+				break;
+			case 5:
 				exportarDatos(clienteServicio);
-			} else if (opcion.equals("6")) {
+				break;
+			case 6:
 				terminarPrograma();
-			} else if (!opcion.equals("6")) {
-				Utilidad.clear(20);
+				break;
+			default:
+				Utilidad.clear(10);
 				System.out.println("Error, elija una de las siguientes opciones...");
+				break;
 			}
 		}
-
 	}
 }

@@ -15,7 +15,7 @@ public class ExportadorTxt extends Exportador{
 	@Override
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingresa la ruta en donde desea exportar el archivo clientes.txt:");
+		System.out.println("Ingresa la ruta en donde desea exportar el archivo "+fileName+".txt:");
 		String ruta = sc.nextLine();
 		File direc = new File(ruta);
 		File arch = new File(ruta+"/"+fileName+".txt");
